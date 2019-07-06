@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue App</title>
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://davidtkatz.com/public_css/vue.css">
+</head>
+<body>
+  <div id="app">
+    <h3>{{title}}</h3>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+        title: 'Notemaster'
+      }
+    })
+   </script>
+</body>
+</html>
