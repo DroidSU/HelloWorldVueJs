@@ -20,6 +20,19 @@
           <label>Note Text</label>
           <textarea class="form-control" v-model="note.text"></textarea>
         </div>
+        <button class="btn btn-primary" @click="addNote">Submit</button>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="col-sm-4 note" v-for="note in notes">
+        <div class="card">
+          <div class="card-block">
+            <h4 class="card-title">{{note.title}}</h4>
+            <h6 class="card-subtitle mb=2 text-muted">{{note.date}}</h6>
+            <p class="card-text">{{note.text}}</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -30,10 +43,36 @@
       data:{
         title: 'Notemaster',
         note:{
+          title: '',
           text: '',
-          title: ''
+          date: new Date(Date.now()).toLocaleString()
+        },
+        notes: [
+          {
+            title: 'Sample Note Title',
+            text: 'Sample Note Text',
+            date: new Date(Date.now()).toLocaleString()
+          }
+        ]
+      },
+        methods: {
+          addNote(){
+            // var title = this.note.title
+            // var text = this.note.text
+            if(this.note.title && this.note.text){
+              this.notes.push({
+                title: this.note.title,
+                text: this.note.text,
+                date: new Date(Date.now()).toLocaleString()
+              })
+              this.note.title = ""
+              this.note.text = ""
+            }
+            else{
+              alert(`Empty strings`)
+            }
+          }
         }
-      }
     })
    </script>
 </body>
