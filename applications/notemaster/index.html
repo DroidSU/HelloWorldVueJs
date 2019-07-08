@@ -56,27 +56,27 @@
           }
         ]
       },
-        methods: {
-          addNote(){
+      methods: {
+        addNote(){
             // var title = this.note.title
             // var text = this.note.text
-            if(this.note.title && this.note.text){
-              this.notes.push({
-                title: this.note.title,
-                text: this.note.text,
-                date: new Date(Date.now()).toLocaleString()
-              })
-              this.note.title = ""
-              this.note.text = ""
-            }
-            else{
-              alert(`Empty strings`)
-            }
-          },
-          removeNote(index){
-            this.notes.splice(index, 1)
+          if(this.note.title && this.note.text){
+            this.notes.push({
+              title: this.note.title,
+              text: this.note.text,
+              date: new Date(Date.now()).toLocaleString()
+            })
+            this.note.title = ""
+            this.note.text = ""
           }
+          else{
+            alert(`Empty strings`)
+          }
+        },
+        removeNote(index){
+          this.notes.splice(index, 1)
         }
+      }
     })
    </script>
 </body>
