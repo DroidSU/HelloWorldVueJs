@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>Vue App</title>
-  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-cookies@1.5.12/vue-cookies.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
   <link rel="stylesheet" href="http://davidtkatz.com/public_css/noteMaster.css">
 </head>
@@ -66,6 +67,10 @@
               text: this.note.text,
               date: new Date(Date.now()).toLocaleString()
             })
+
+            var cookieObject = this.note
+            var cookieString = JSON.stringify(cookieObject)
+            this.$cookies.set(this.note.title, cookieString, 1)
             this.note.title = ""
             this.note.text = ""
           }
@@ -75,6 +80,9 @@
         },
         removeNote(index){
           this.notes.splice(index, 1)
+        },
+        deleteCookie(noteIndex){
+          this.$cookies.remove(note.title)
         }
       }
     })
